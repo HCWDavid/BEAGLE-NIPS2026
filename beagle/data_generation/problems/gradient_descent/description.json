@@ -1,0 +1,20 @@
+{
+  "problem_id": "gradient_descent",
+  "title": "Gradient Descent Optimizer",
+  "description": "Implement a gradient descent function that finds the minimum of a mathematical function.\n\nYou need to implement THREE functions IN ORDER:\n1. `f(x)`: A function that computes f(x) = x^4 - x^2 + 0.25*x\n2. `f_grad(x)`: A function that computes the gradient (derivative) of f at point x using numerical differentiation\n3. `gradient_descent(f_grad, x0, eta)`: A function that performs gradient descent optimization\n\nIMPORTANT: Work on these functions ONE AT A TIME, in order. First get f(x) working and passing tests, then move to f_grad, then finally gradient_descent.\n\nGradient Descent Background:\n- Gradient descent is an iterative optimization algorithm to find local minima\n- Starting from an initial guess x0, we repeatedly update: x = x - eta * gradient\n- eta (learning rate) controls the step size\n- The algorithm stops when the gradient is small enough (convergence) or after many iterations\n\nNumerical Gradient:\n- The gradient can be approximated using: (f(x + delta) - f(x - delta)) / (2 * delta)\n- Use a small delta value like 0.0001 for accuracy\n\nYour gradient_descent function should:\n- Take f_grad (gradient function), x0 (starting point), and eta (learning rate) as parameters\n- Iterate until |gradient| < 0.001 or max iterations reached (to avoid infinite loops)\n- Return the x value at the minimum",
+  "function_name": "gradient_descent",
+  "starting_code": "def f(x):\n    return \"Write the Python function expression here\"\n",
+  "required_kcs": [
+    "KC_C1_FUNCTION_DEF_RETURN",
+    "KC_C4_ARITHMETIC_IMPLEMENTATION",
+    "KC_C13_LOOP_CONSTRUCT",
+    "KC_C14_CONDITIONAL_LOGIC",
+    "KC_C15_VARIABLE_UPDATE",
+    "KC_C16_FUNCTION_CALL",
+    "KC_M1_DERIVATIVE_CONCEPT",
+    "KC_M2_NUMERICAL_DIFFERENTIATION",
+    "KC_M3_ITERATIVE_ALGORITHM",
+    "KC_M4_CONVERGENCE_CRITERIA",
+    "KC_M5_LEARNING_RATE"
+  ]
+}

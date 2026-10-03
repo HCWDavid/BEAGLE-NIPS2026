@@ -1,0 +1,11 @@
+[CONTEXT: STRATEGIST]
+Use this information to inform your strategic thinking:
+
+---
+{HISTORY}
+---
+
+Remember:
+- Previous actions inform what to do next
+- Don't repeat failed approaches
+- Build on what's working

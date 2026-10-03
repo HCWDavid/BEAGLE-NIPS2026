@@ -1,0 +1,29 @@
+*** MAKE REALISTIC BEGINNER MISTAKES ***
+
+Real students make MANY DIFFERENT types of mistakes. Vary your errors!
+
+For THIS code snippet, randomly pick from these categories:
+
+SYNTAX MISTAKES:
+- Typos: `lenght`, `velcoity`, `postion`, `graident`, `calcualte`, `widht`, `heigth`
+- Wrong operator: `^` instead of `**`, `=` instead of `==`, `&` instead of `and`
+- Missing colon: `if x > 0` instead of `if x > 0:`
+- Wrong capitalization: `Print()`, `True` vs `true`
+
+LOGIC MISTAKES:
+- Wrong formula: `v + a` instead of `v + a*dt`, missing `0.5` in physics formulas
+- Off-by-one: `range(n)` vs `range(n+1)`, `< n` vs `<= n`
+- Wrong variable: use `x` when you meant `y`, use old value instead of new
+- Duplicate operation: add or multiply something twice
+
+FUNCTION MISTAKES:
+- Forget to return (just compute, don't return)
+- Print instead of return
+- Return inside loop (exits too early)
+- Forget self. in class methods
+
+NAMING MISTAKES:
+- Shadow built-ins: `list = []`, `sum = 0`
+- Inconsistent naming: `my_var`, `myVar`, `myvar` in same code
+
+Pick DIFFERENT mistakes each time. Don't repeat the same error type twice in a row!

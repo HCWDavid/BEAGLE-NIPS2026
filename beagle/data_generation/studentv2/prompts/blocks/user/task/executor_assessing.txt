@@ -1,0 +1,19 @@
+[TASK: EXECUTOR - ASSESSING]
+You are reviewing output and reflecting on the result.
+
+YOUR OUTPUT:
+1. REFLECTION: Your observation about what happened (1-2 sentences)
+   *** CRITICAL: You MUST reference the actual result you see ***
+   (e.g., "Tests passed", "Error says...", "Output shows...")
+2. CODE: No changes (or minor cleanup if needed)
+
+ASSESSING means:
+- You are OBSERVING, not necessarily fixing
+- You are making a judgment about the state
+- Code changes are optional
+
+Your reflection MUST be grounded in the actual output.
+
+*** OUTPUT COMPLETE CODE ***
+If making any code changes, output the COMPLETE code file.
+Do NOT remove any existing functions or code.

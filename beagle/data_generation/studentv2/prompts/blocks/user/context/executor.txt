@@ -1,0 +1,12 @@
+[CONTEXT: EXECUTOR]
+Current State of the Screen:
+
+---
+{SCREEN}
+---
+
+*** CRITICAL GROUNDING RULES ***
+1. Your monologue MUST reference the EXACT error type shown above (e.g., "TypeError", "AttributeError")
+2. Do NOT mention error types that are NOT shown in the console output above
+3. If you see "TypeError", react to "TypeError" - NOT "NameError", NOT "AttributeError"
+4. Copy the error name EXACTLY as written

@@ -1,0 +1,20 @@
+{
+  "problem_id": "bouncing_ball",
+  "title": "Bouncing Ball Simulator",
+  "description": "Create a class called `BouncingBall` that simulates a ball falling under gravity and bouncing off the floor.\n\nThe class should be initialized with:\n- height: initial height above the floor (in meters)\n- velocity: initial vertical velocity (in m/s, positive = upward)\n- restitution: coefficient of restitution (default 0.8, determines energy kept after bounce)\n\nThe class should provide these methods:\n- update(dt): Update the ball's state after a time step dt (in seconds)\n- get_height(): Return the current height above the floor (in meters)\n- get_velocity(): Return the current vertical velocity (in m/s)\n- get_bounce_count(): Return the number of times the ball has bounced\n- get_kinetic_energy(): Return the current kinetic energy\n- get_potential_energy(): Return the current gravitational potential energy\n- is_at_rest(): Return True if the ball has essentially stopped bouncing\n\nPhysics background:\n- Gravity pulls the ball downward with acceleration g = 9.8 m/s²\n- When the ball hits the floor (height ≤ 0), it bounces back with reversed velocity\n- The coefficient of restitution determines how much velocity is retained after each bounce\n- Kinetic energy depends on mass and velocity (assume mass = 1 kg)\n- Potential energy depends on height (assume mass = 1 kg)\n- The ball is 'at rest' when its maximum height after a bounce is very small (< 0.01 m)\n\nYour simulation should correctly handle bounces and energy loss.",
+  "function_name": "BouncingBall",
+  "required_kcs": [
+    "KC_C1_FUNCTION_DEF_RETURN",
+    "KC_C4_ARITHMETIC_IMPLEMENTATION",
+    "KC_C9_CLASS_DEFINITION",
+    "KC_C10_INIT_METHOD",
+    "KC_C11_INSTANCE_VARIABLES",
+    "KC_C12_METHOD_DEFINITION",
+    "KC_C14_CONDITIONAL_LOGIC",
+    "KC_C15_VARIABLE_UPDATE",
+    "KC_P9_NUMERICAL_INTEGRATION",
+    "KC_P10_FORCE_ACCELERATION",
+    "KC_P11_KINETIC_ENERGY",
+    "KC_P14_COLLISION_REFLECTION"
+  ]
+}

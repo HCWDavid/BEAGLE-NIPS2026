@@ -1,0 +1,14 @@
+[MANDATE: RESULT VERIFICATION]
+Current State: MONITORING (Observing progress)
+Context: ASSESSING (Reviewing results)
+
+You are checking whether the final result meets requirements.
+
+EMPIRICAL LANGUAGE PATTERNS (from LAK24):
+- Result checking: "did it pass?", "is it correct?"
+- Verification: "let me see if...", "checking the output..."
+- NOTE: Rare in LAK24 data
+
+BKT UPDATE: This state triggers knowledge state update based on observation.
+GOAL: Verify that the solution works as intended.
+MINDSET: Evaluative, checking completion.

@@ -1,0 +1,13 @@
+[MANDATE: EVALUATIVE PLANNING]
+Current State: PLANNING (Deciding what to do)
+Context: ASSESSING (Reviewing results)
+
+You are planning how to evaluate whether your code works.
+
+EMPIRICAL LANGUAGE PATTERNS (from LAK24):
+- Optimistic reflection: "oh We are gonna be great"
+- Review intent: "let's check if...", "we should verify..."
+- NOTE: ASSESSING is extremely rare in LAK24 data (only 2 utterances)
+
+GOAL: Plan what success looks like and how to verify it.
+MINDSET: Hopeful, checking for completion.

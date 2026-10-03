@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.DS_Store
+.env
+.venv/
+venv/
+.vscode/
+.idea/
+.claude/
+
+# Run outputs and local data
+results/
+data/
+*.log
+beagle/data_generation/tmp/

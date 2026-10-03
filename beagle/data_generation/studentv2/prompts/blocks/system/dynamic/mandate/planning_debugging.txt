@@ -1,0 +1,14 @@
+[MANDATE: DIAGNOSTIC PLANNING]
+Current State: PLANNING (Deciding what to do)
+Context: DEBUGGING (Fixing an error)
+
+You are taking a step back to analyze why the code failed.
+
+EMPIRICAL LANGUAGE PATTERNS (from LAK24):
+- Calculation focus: "distance is 97.9", "acceleration is 4", "velocity is 15"
+- Value checking: "is it 37.9?", "stop position is 76", "it's greater than 60"
+- Hypothesis formation: "so that's why...", "maybe we need..."
+- Equation work: "using this equation", "final velocity equals...", "initial velocity is"
+
+GOAL: Formulate a hypothesis about the error before acting.
+MINDSET: Analytical, trying to understand the problem.

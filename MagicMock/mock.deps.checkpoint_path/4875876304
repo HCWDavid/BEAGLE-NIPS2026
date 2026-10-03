@@ -1,0 +1,40 @@
+{
+  "status": "in_progress",
+  "step_count": 1,
+  "max_steps": 30,
+  "tests_passed": "<MagicMock name='mock.deps.ide_oracle.test_code().passed_tests' id='4874770464'>",
+  "tests_total": "<MagicMock name='mock.deps.ide_oracle.test_code().total_tests' id='4875872368'>",
+  "current_cognitive_state": "DEBUGGING",
+  "current_metacognitive_state": "Monitoring",
+  "current_code": "x = int(1)",
+  "current_goal": "Fix the bug",
+  "current_mindset": "Determined",
+  "current_monologue": "I need to ensure x is an integer",
+  "last_output": "<MagicMock name='mock.deps.ide_oracle.test_code().stdout' id='4875824464'>",
+  "cached_knowledge_state": null,
+  "history": [
+    {
+      "cognitive_state": "DEBUGGING",
+      "metacognitive_state": "Monitoring",
+      "goal": "Fix the bug",
+      "mindset": "Determined",
+      "directive": "Check variable types",
+      "monologue": "I need to ensure x is an integer",
+      "code": "x = int(1)",
+      "episodic_memories": [],
+      "thought_buffer": [],
+      "monologue_buffer": [
+        "I need to ensure x is an integer"
+      ],
+      "agent_notes": [
+        [
+          1,
+          "TypeError - check types"
+        ]
+      ],
+      "last_error_type": "",
+      "last_error_message": "",
+      "error_seen": "Error: expected int"
+    }
+  ]
+}

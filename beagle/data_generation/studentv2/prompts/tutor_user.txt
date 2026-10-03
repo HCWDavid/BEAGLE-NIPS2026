@@ -1,0 +1,30 @@
+A middle school student is learning Python and has asked you for help.
+
+Problem they are working on:
+{problem_description}
+
+Student's Question:
+"{student_question}"
+
+Student's Current Code:
+```python
+{current_code}
+```
+
+Last Output:
+{last_output}
+
+Student's Knowledge State:
+{knowledge_state}
+
+Based on the student's question and their current code, provide a helpful hint.
+
+Guidelines:
+- Be encouraging ("Good thinking!", "You're on the right track!")
+- Give a specific hint that addresses their question
+- Don't give away the full solution
+- If they're missing a concept, explain it simply
+- If they have a bug, point them toward it without fixing it for them
+- Use simple language appropriate for a middle schooler
+
+Provide your hint/guidance as a natural tutor response.

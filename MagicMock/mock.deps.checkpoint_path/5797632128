@@ -1,0 +1,35 @@
+{
+  "status": "in_progress",
+  "step_count": 1,
+  "max_steps": 30,
+  "tests_passed": "<MagicMock name='mock.deps.ide_oracle.test_code().passed_tests' id='5800944240'>",
+  "tests_total": "<MagicMock name='mock.deps.ide_oracle.test_code().total_tests' id='5800948080'>",
+  "current_cognitive_state": "ASSESSING",
+  "current_metacognitive_state": "Reflecting",
+  "current_code": "working_code()",
+  "current_goal": "Review code",
+  "current_mindset": "Reflective",
+  "current_monologue": "The code handles edge cases well",
+  "last_output": "<MagicMock name='mock.deps.ide_oracle.test_code().stdout' id='5800932992'>",
+  "cached_knowledge_state": null,
+  "history": [
+    {
+      "cognitive_state": "ASSESSING",
+      "metacognitive_state": "Reflecting",
+      "goal": "Review code",
+      "mindset": "Reflective",
+      "directive": "Check edge cases",
+      "monologue": "The code handles edge cases well",
+      "code": "working_code()",
+      "episodic_memories": [],
+      "thought_buffer": [],
+      "monologue_buffer": [
+        "The code handles edge cases well"
+      ],
+      "agent_notes": [],
+      "last_error_type": "",
+      "last_error_message": "",
+      "reflection": "The code handles edge cases well"
+    }
+  ]
+}

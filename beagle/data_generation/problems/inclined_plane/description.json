@@ -1,0 +1,22 @@
+{
+  "problem_id": "inclined_plane",
+  "title": "Inclined Plane Slider",
+  "description": "Create a class called `Slider` that simulates an object sliding down an inclined plane (ramp).\n\nThe class should be initialized with:\n- angle: the angle of the incline (in degrees, between 0 and 90)\n- length: the length of the ramp (in meters)\n- friction: coefficient of kinetic friction (default 0.1, between 0 and 1)\n\nThe class should provide these methods:\n- update(dt): Update the slider's state after a time step dt (in seconds)\n- get_position(): Return distance traveled along the ramp (in meters)\n- get_velocity(): Return current velocity along the ramp (in m/s)\n- get_acceleration(): Return current acceleration along the ramp (in m/s²)\n- has_reached_bottom(): Return True if the slider has reached the bottom (position >= length)\n- get_time(): Return total time elapsed (in seconds)\n\nPhysics background:\n- On an incline, gravity has a component along the ramp that accelerates the object downward\n- Friction opposes motion and depends on the normal force (the force perpendicular to the surface)\n- The net acceleration determines how the object speeds up\n- If friction is strong enough, the object may not slide at all\n- Use g = 9.8 m/s² for gravity\n- Angles need conversion from degrees to radians\n\nThe slider starts from rest at the top of the ramp (position = 0).",
+  "function_name": "Slider",
+  "required_kcs": [
+    "KC_C1_FUNCTION_DEF_RETURN",
+    "KC_C2_MATH_LIBRARY",
+    "KC_C4_ARITHMETIC_IMPLEMENTATION",
+    "KC_C9_CLASS_DEFINITION",
+    "KC_C10_INIT_METHOD",
+    "KC_C11_INSTANCE_VARIABLES",
+    "KC_C12_METHOD_DEFINITION",
+    "KC_C14_CONDITIONAL_LOGIC",
+    "KC_P1_VECTOR_DECOMPOSITION",
+    "KC_P2_TRIG_APPLICATION",
+    "KC_P5_UNIT_RADIANS",
+    "KC_P9_NUMERICAL_INTEGRATION",
+    "KC_P10_FORCE_ACCELERATION",
+    "KC_P16_FRICTION"
+  ]
+}

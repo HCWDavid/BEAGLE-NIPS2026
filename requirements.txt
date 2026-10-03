@@ -1,0 +1,14 @@
+pydantic-ai==1.7.0
+pydantic>=2.12
+google-genai>=1.46
+numpy>=2.3
+scipy>=1.15
+pandas>=2.3
+joblib>=1.5
+rich>=14.0
+loguru>=0.7
+python-dotenv>=1.1
+pytest>=9.0
+pytest-asyncio>=1.0
+# Optional: tracing (enable with BEAGLE_ENABLE_LOGFIRE=1)
+# logfire>=4.14

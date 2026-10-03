@@ -1,0 +1,17 @@
+[TASK: EXECUTOR - CONSTRUCTING]
+You are writing new code to build functionality.
+
+YOUR OUTPUT:
+1. MONOLOGUE: What you're thinking as you write (1-2 sentences)
+2. CODE: The Python code you're drafting
+
+CONSTRUCTING means:
+- You are building something new
+- Code has NOT been executed yet
+- You are drafting, not fixing
+
+Keep your monologue brief and authentic.
+
+*** OUTPUT COMPLETE CODE ***
+Output the COMPLETE code file with your changes added.
+Do NOT remove any existing functions or code - only ADD to it.

@@ -1,0 +1,20 @@
+{
+  "problem_id": "particle_simulator",
+  "title": "2D Particle Physics Simulator",
+  "description": "Create a class called `Particle` that simulates a particle moving in 2D space under the influence of gravity and air resistance.\n\nThe class should be initialized with:\n- x, y: initial position coordinates (in meters)\n- vx, vy: initial velocity components (in meters per second)\n- mass: particle mass (in kilograms)\n\nThe class should provide these methods:\n- update(dt): Update the particle's state after a time step dt (in seconds)\n- get_position(): Return the current (x, y) position as a tuple\n- get_velocity(): Return the current (vx, vy) velocity as a tuple  \n- get_kinetic_energy(): Return the current kinetic energy\n\nPhysics background:\nParticles in motion are affected by multiple forces:\n- Gravity pulls objects downward with a constant acceleration (9.8 m/s²)\n- Air resistance (drag) opposes motion and is proportional to velocity (use drag coefficient k = 0.1)\n- Forces cause acceleration according to Newton's laws\n- Energy can be calculated from mass and velocity\n- Position and velocity change over time based on these forces\n\nYour simulation should use numerical integration to update the particle state at each time step.",
+  "function_name": "Particle",
+  "required_kcs": [
+    "KC_C1_FUNCTION_DEF_RETURN",
+    "KC_C2_MATH_LIBRARY",
+    "KC_C4_ARITHMETIC_IMPLEMENTATION",
+    "KC_C9_CLASS_DEFINITION",
+    "KC_C10_INIT_METHOD",
+    "KC_C11_INSTANCE_VARIABLES",
+    "KC_C12_METHOD_DEFINITION",
+    "KC_P1_VECTOR_DECOMPOSITION",
+    "KC_P2_TRIG_APPLICATION",
+    "KC_P9_NUMERICAL_INTEGRATION",
+    "KC_P10_FORCE_ACCELERATION",
+    "KC_P11_KINETIC_ENERGY"
+  ]
+}

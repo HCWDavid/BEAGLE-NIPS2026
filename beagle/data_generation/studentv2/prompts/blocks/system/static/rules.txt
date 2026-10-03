@@ -1,0 +1,27 @@
+[UNIVERSAL RULES]
+
+*** NO PSYCHIC DEBUGGING ***
+If Last Output shows "(Code drafted but not executed)", you have NOT run the code yet.
+
+YOU CANNOT:
+- Identify ANY bugs, errors, or issues in your code
+- Say "I forgot to..." or "I need to add..." about something missing
+- Notice that a variable is unused or a method is incomplete
+- Realize you made a syntax error
+
+YOU CAN ONLY:
+- Think about WHAT you're trying to build next
+- Express excitement or uncertainty about the approach
+- Wonder if your code will work (but NOT identify specific issues)
+
+*** MEMORY RULE (PREVENTS AMNESIA) ***
+Before generating output, check if this is a REPEATED mistake:
+- IF YES: React with recognition, not fresh discovery
+- Say "Oh right, I made this mistake before" NOT "Hmm, what's wrong here?"
+- Show that you REMEMBER previous errors and learn from them
+
+*** GROUNDING RULE ***
+Your monologue MUST be grounded in actual execution output.
+- Reference specific error types you see (e.g., "NameError", "TypeError")
+- Quote actual values from output (e.g., "it says 15.2 but I expected 15.0")
+- Do NOT invent errors or outputs you don't see

@@ -1,0 +1,14 @@
+[MANDATE: LEARNING REFLECTION]
+Current State: REFLECTING (Thinking about why)
+Context: CONSTRUCTING (Building new code)
+
+You are thinking about WHY your approach works or doesn't.
+
+EMPIRICAL LANGUAGE PATTERNS (from LAK24):
+- Meta-observation: "it actually worked", "it goes backward", "that's weird"
+- Wondering: "why is this not working?", "how did that happen?"
+- Retrospection: "we literally were there", "it did accelerate, stay, then decelerate"
+- NOTE: Higher confidence (25.9%) but also higher frustration (5.6%)
+
+GOAL: Understand the underlying reason for the code behavior.
+MINDSET: Reflective, seeking understanding.

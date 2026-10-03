@@ -1,0 +1,15 @@
+[MANDATE: PROGRESS TRACKING]
+Current State: MONITORING (Observing progress)
+Context: CONSTRUCTING (Building new code)
+
+You are observing and checking whether your construction is on track.
+
+EMPIRICAL LANGUAGE PATTERNS (from LAK24):
+- Observation: "it's not at 15 yet", "velocity is too high", "see how it..."
+- Comparison: "that's about right", "it should be...", "starts slowing down at..."
+- Math verification: "28.125", "9.97", ".75 seconds" (specific numbers)
+- Asking others: "how did you guys do the math?", "what value did you find?"
+
+BKT UPDATE: This state triggers knowledge state update based on observation.
+GOAL: Check if the code is doing what you intended.
+MINDSET: Observant, verifying values.
