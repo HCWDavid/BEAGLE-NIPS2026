@@ -34,7 +34,6 @@ from dataclasses import dataclass
 # Conceptual KCs (C1-C12)
 KC_C1 = "KC_C1_FUNCTION_DEF_RETURN"
 KC_C2 = "KC_C2_MATH_LIBRARY"
-KC_C3 = "KC_C3_FUNCTION_USAGE_ASSIGNMENT"
 KC_C4 = "KC_C4_ARITHMETIC_IMPLEMENTATION"
 KC_C9 = "KC_C9_CLASS_DEFINITION"
 KC_C10 = "KC_C10_INIT_METHOD"
@@ -50,18 +49,13 @@ KC_C16 = "KC_C16_FUNCTION_CALL"
 # Physics KCs (P1-P11)
 KC_P1 = "KC_P1_VECTOR_DECOMPOSITION"
 KC_P2 = "KC_P2_TRIG_APPLICATION"
-KC_P3 = "KC_P3_TIME_OF_FLIGHT"
-KC_P4 = "KC_P4_RANGE_FORMULA"
 KC_P5 = "KC_P5_UNIT_RADIANS"
 KC_P9 = "KC_P9_NUMERICAL_INTEGRATION"
 KC_P10 = "KC_P10_FORCE_ACCELERATION"
 KC_P11 = "KC_P11_KINETIC_ENERGY"
 
 # Additional Physics KCs (P12-P16) - new problems
-KC_P12 = "KC_P12_POTENTIAL_ENERGY"
-KC_P13 = "KC_P13_HOOKES_LAW"
 KC_P14 = "KC_P14_COLLISION_REFLECTION"
-KC_P15 = "KC_P15_RELATIVE_VELOCITY"
 KC_P16 = "KC_P16_FRICTION"
 
 # Math KCs for gradient descent (M1-M5)
@@ -159,8 +153,6 @@ class AutomatedAssessmentOracle:
             return self._assess_math_import(
                 code_no_comments, ast_tree, execution_result
             )
-        elif kc_id == KC_C3:
-            return self._assess_function_usage(code_no_comments, ast_tree)
         elif kc_id == KC_C4:
             return self._assess_arithmetic(code_no_comments, ast_tree)
         elif kc_id == KC_C9:
@@ -178,10 +170,6 @@ class AutomatedAssessmentOracle:
             )
         elif kc_id == KC_P2:
             return self._assess_trig_application(code_no_comments, ast_tree)
-        elif kc_id == KC_P3:
-            return self._assess_time_of_flight(code_no_comments, ast_tree)
-        elif kc_id == KC_P4:
-            return self._assess_range_formula(code_no_comments, ast_tree)
         elif kc_id == KC_P5:
             return self._assess_radian_conversion(code_no_comments, ast_tree)
         elif kc_id == KC_P9:
@@ -193,14 +181,8 @@ class AutomatedAssessmentOracle:
         elif kc_id == KC_P11:
             return self._assess_kinetic_energy(code_no_comments, ast_tree)
         # Additional Physics KCs (P12-P16) - new problems
-        elif kc_id == KC_P12:
-            return self._assess_potential_energy(code_no_comments, ast_tree)
-        elif kc_id == KC_P13:
-            return self._assess_hookes_law(code_no_comments, ast_tree)
         elif kc_id == KC_P14:
             return self._assess_collision_reflection(code_no_comments, ast_tree)
-        elif kc_id == KC_P15:
-            return self._assess_relative_velocity(code_no_comments, ast_tree)
         elif kc_id == KC_P16:
             return self._assess_friction(code_no_comments, ast_tree)
         # Additional Conceptual KCs for gradient descent (C13-C16)
@@ -226,10 +208,10 @@ class AutomatedAssessmentOracle:
         else:
             # Hard error: KC must be defined with an assessment method
             defined_kcs = [
-                KC_C1, KC_C2, KC_C3, KC_C4, KC_C9, KC_C10, KC_C11, KC_C12,
+                KC_C1, KC_C2, KC_C4, KC_C9, KC_C10, KC_C11, KC_C12,
                 KC_C13, KC_C14, KC_C15, KC_C16,
-                KC_P1, KC_P2, KC_P3, KC_P4, KC_P5, KC_P9, KC_P10, KC_P11,
-                KC_P12, KC_P13, KC_P14, KC_P15, KC_P16,
+                KC_P1, KC_P2, KC_P5, KC_P9, KC_P10, KC_P11,
+                KC_P14, KC_P16,
                 KC_M1, KC_M2, KC_M3, KC_M4, KC_M5
             ]
             raise ValueError(
@@ -316,34 +298,6 @@ class AutomatedAssessmentOracle:
         else:
             return KCAssessment(KC_C2, False, "math not imported", 0.9)
 
-    def _assess_function_usage(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_C3: Function usage and variable assignment."""
-        # Look for assignments with function calls
-        has_assignment = False
-        uses_math_functions = False
-
-        for node in ast.walk(ast_tree):
-            if isinstance(node, ast.Assign):
-                has_assignment = True
-            if isinstance(node, ast.Call):
-                if isinstance(node.func, ast.Attribute):
-                    if isinstance(
-                        node.func.value, ast.Name
-                    ) and node.func.value.id == "math":
-                        uses_math_functions = True
-
-        if has_assignment and uses_math_functions:
-            return KCAssessment(
-                KC_C3, True, "Uses math functions with assignment", 1.0
-            )
-        elif has_assignment:
-            return KCAssessment(KC_C3, True, "Has assignments (partial)", 0.6)
-        else:
-            return KCAssessment(
-                KC_C3, False, "No variable assignments found", 0.9
-            )
 
     def _assess_arithmetic(self, code: str, ast_tree: ast.AST) -> KCAssessment:
         """KC_C4: Arithmetic operations."""
@@ -459,43 +413,6 @@ class AutomatedAssessmentOracle:
                 KC_P5, False, "No radian conversion found", 0.9
             )
 
-    def _assess_time_of_flight(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_P3: Time of flight calculation (t = 2 * v_y / g)."""
-        has_time_var = "time" in code.lower() or ("t" in code and "=" in code)
-
-        # Check for multiplication by 2 (NOT squaring/exponentiation)
-        # We want: 2 * something or something * 2
-        has_factor_of_2 = (
-            re.search(r'2\s*\*', code) or  # 2 * something
-            re.search(r'\*\s*2', code)  # something * 2
-        )
-
-        if has_time_var and has_factor_of_2:
-            return KCAssessment(
-                KC_P3, True, "Time calculation with factor of 2", 0.9
-            )
-        elif has_time_var:
-            return KCAssessment(
-                KC_P3, False, "Time calculation missing factor of 2", 0.7
-            )
-        else:
-            return KCAssessment(
-                KC_P3, False, "No time of flight calculation", 0.9
-            )
-
-    def _assess_range_formula(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_P4: Range formula (R = v_x * t)."""
-        has_range = "range" in code.lower() or ("r" in code and "=" in code)
-        has_multiplication = "*" in code
-
-        if has_range and has_multiplication:
-            return KCAssessment(KC_P4, True, "Range calculation present", 0.8)
-        else:
-            return KCAssessment(KC_P4, False, "No range calculation", 0.9)
 
     # ========== OOP KC Assessment Methods (C9-C12) ==========
 
@@ -719,70 +636,6 @@ class AutomatedAssessmentOracle:
 
     # ========== Additional Physics KC Assessment Methods (P12-P16) ==========
 
-    def _assess_potential_energy(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_P12: Potential energy calculation (PE = 0.5*k*x² or m*g*h)."""
-        code_lower = code.lower()
-        has_energy = (
-            "energy" in code_lower or "pe" in code_lower
-            or "potential" in code_lower
-        )
-        # Spring PE = 0.5 * k * x²
-        has_spring_pe = (
-            "0.5" in code and "k" in code and "**2" in code
-        )
-        # Gravitational PE = m * g * h
-        has_grav_pe = (
-            ("g" in code or "9.8" in code or "gravity" in code_lower)
-            and ("h" in code or "height" in code_lower)
-        )
-
-        if has_energy and (has_spring_pe or has_grav_pe):
-            return KCAssessment(
-                KC_P12, True, "Potential energy formula present", 1.0
-            )
-        elif has_spring_pe or has_grav_pe:
-            return KCAssessment(
-                KC_P12, True, "Potential energy calculation (partial pattern)", 0.7
-            )
-        else:
-            return KCAssessment(
-                KC_P12, False, "No potential energy calculation found", 0.8
-            )
-
-    def _assess_hookes_law(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_P13: Hooke's Law (F = -kx)."""
-        code_lower = code.lower()
-        # Look for spring force pattern: -k * x or -self.k * self.x
-        has_spring_constant = "k" in code and ("self.k" in code or " k " in code or "k*" in code or "k *" in code)
-        has_displacement = "x" in code or "position" in code_lower or "displacement" in code_lower
-        has_negation = "-" in code and has_spring_constant
-
-        # Check for F = -k * x pattern
-        force_pattern = (
-            "f_spring" in code_lower or "force" in code_lower
-            or "f_" in code_lower or "-self.k" in code
-        )
-
-        if force_pattern and has_spring_constant and has_negation:
-            return KCAssessment(
-                KC_P13, True, "Hooke's Law (F = -kx) present", 1.0
-            )
-        elif has_spring_constant and has_displacement and has_negation:
-            return KCAssessment(
-                KC_P13, True, "Spring restoring force pattern", 0.8
-            )
-        elif has_spring_constant and has_displacement:
-            return KCAssessment(
-                KC_P13, False, "Spring constant and displacement, but missing negative sign", 0.5
-            )
-        else:
-            return KCAssessment(
-                KC_P13, False, "No Hooke's Law pattern found", 0.8
-            )
 
     def _assess_collision_reflection(
         self, code: str, ast_tree: ast.AST
@@ -819,40 +672,6 @@ class AutomatedAssessmentOracle:
                 KC_P14, False, "No collision/velocity reversal found", 0.8
             )
 
-    def _assess_relative_velocity(
-        self, code: str, ast_tree: ast.AST
-    ) -> KCAssessment:
-        """KC_P15: Vector addition of velocities."""
-        code_lower = code.lower()
-        # Look for velocity addition patterns (boat + current, etc.)
-        has_velocity_addition = (
-            "current" in code_lower and "+" in code
-            or "v_total" in code_lower or "total_v" in code_lower
-            or "vx" in code and "current" in code_lower
-            or "boat_vx" in code_lower or "boat_vy" in code_lower
-        )
-        has_multiple_velocities = (
-            ("vx" in code and "vy" in code)
-            or ("velocity_x" in code_lower and "velocity_y" in code_lower)
-            or ("v_x" in code and "v_y" in code)
-        )
-
-        if has_velocity_addition and has_multiple_velocities:
-            return KCAssessment(
-                KC_P15, True, "Vector velocity addition present", 1.0
-            )
-        elif has_velocity_addition:
-            return KCAssessment(
-                KC_P15, True, "Velocity addition (partial pattern)", 0.7
-            )
-        elif has_multiple_velocities:
-            return KCAssessment(
-                KC_P15, True, "Multiple velocity components", 0.5
-            )
-        else:
-            return KCAssessment(
-                KC_P15, False, "No relative velocity calculation found", 0.8
-            )
 
     def _assess_friction(
         self, code: str, ast_tree: ast.AST
@@ -1171,7 +990,7 @@ def projectile_range(initial_velocity, angle_degrees, gravity):
         "error": "Wrong output: expected 40.82, got 14.14"
     }
 
-    required_kcs = [KC_C1, KC_C2, KC_C3, KC_P1, KC_P2, KC_P5]
+    required_kcs = [KC_C1, KC_C2, KC_P1, KC_P2, KC_P5]
 
     aao = AutomatedAssessmentOracle()
     assessment = aao.assess_code(code, execution_result, required_kcs)

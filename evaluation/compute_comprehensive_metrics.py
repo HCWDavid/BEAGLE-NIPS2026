@@ -1446,9 +1446,9 @@ def generate_cross_task_table(
     lines.append(r"\begin{table}[h]")
     lines.append(r"    \centering")
     lines.append(
-        r"    \caption{Cross-topology generalization within and beyond C2STEM. "
+        r"    \caption{Cross-task generalization within C-STEM. "
         r"BEAGLE's behavioral, epistemic, and perceptual fidelity gains hold across "
-        r"three C2STEM topologies, one biology, and one math task. "
+        r"three physics tasks and one cross-domain math task. "
         r"Best in \textbf{bold}.}"
     )
     lines.append(r"    \label{tab:cross_task_results}")

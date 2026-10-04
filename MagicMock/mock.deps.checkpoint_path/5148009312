@@ -1,0 +1,40 @@
+{
+  "status": "in_progress",
+  "step_count": 1,
+  "max_steps": 30,
+  "tests_passed": 0,
+  "tests_total": 5,
+  "current_cognitive_state": "DEBUGGING",
+  "current_metacognitive_state": "Planning",
+  "current_code": "def calculate():\n    return 42",
+  "current_goal": "",
+  "current_mindset": "",
+  "current_monologue": "Fixed the bug",
+  "last_output": "",
+  "cached_knowledge_state": null,
+  "history": [
+    {
+      "cognitive_state": "DEBUGGING",
+      "metacognitive_state": "Planning",
+      "goal": "",
+      "mindset": "",
+      "directive": "",
+      "monologue": "Fixed the bug",
+      "code": "def calculate():\n    return 42",
+      "episodic_memories": [],
+      "thought_buffer": [],
+      "monologue_buffer": [
+        "Fixed the bug"
+      ],
+      "agent_notes": [
+        [
+          1,
+          "TypeError - check types"
+        ]
+      ],
+      "last_error_type": "",
+      "last_error_message": "",
+      "error_seen": "Error: expected int"
+    }
+  ]
+}

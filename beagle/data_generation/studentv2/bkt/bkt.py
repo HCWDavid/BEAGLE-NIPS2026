@@ -35,12 +35,11 @@ class Observation(Enum):
 # =============================================================================
 # All valid Knowledge Component IDs. Any KC used in a problem must be listed here.
 # Format: KC_<domain><number>_<NAME>
-# Domains: C=Coding, P=Physics, M=Math, B=Biology
+# Domains: C=Coding, P=Physics, M=Math
 VALID_KC_IDS = {
-    # Coding KCs (C1-C12) - used by projectile_motion, particle_simulator
+    # Coding KCs (C1-C12)
     'KC_C1_FUNCTION_DEF_RETURN',  # Function definition with return
     'KC_C2_MATH_LIBRARY',         # import math, numpy
-    'KC_C3_FUNCTION_USAGE_ASSIGNMENT',  # calling functions, assigning to vars
     'KC_C4_ARITHMETIC_IMPLEMENTATION',  # +, -, *, /, **
     'KC_C9_CLASS_DEFINITION',     # class keyword
     'KC_C10_INIT_METHOD',         # __init__ method
@@ -56,18 +55,13 @@ VALID_KC_IDS = {
     # Physics KCs (P1-P11)
     'KC_P1_VECTOR_DECOMPOSITION', # v_x, v_y components
     'KC_P2_TRIG_APPLICATION',     # sin/cos for physics
-    'KC_P3_TIME_OF_FLIGHT',       # t = 2*v_y/g
-    'KC_P4_RANGE_FORMULA',        # R = v_x * t
     'KC_P5_UNIT_RADIANS',         # degree to radian conversion
     'KC_P9_NUMERICAL_INTEGRATION',  # Euler method, dt updates
     'KC_P10_FORCE_ACCELERATION',  # F = ma
     'KC_P11_KINETIC_ENERGY',      # KE = 0.5*m*v^2
 
     # Additional Physics KCs (P12-P16) - new problems
-    'KC_P12_POTENTIAL_ENERGY',    # PE = 0.5*k*x² (spring) or m*g*h
-    'KC_P13_HOOKES_LAW',          # F = -kx spring force
     'KC_P14_COLLISION_REFLECTION', # velocity reversal on bounce
-    'KC_P15_RELATIVE_VELOCITY',   # vector addition of velocities
     'KC_P16_FRICTION',            # μmg cos(θ) friction force
 
     # Math KCs (M1-M5) - for gradient descent, calculus
@@ -77,10 +71,6 @@ VALID_KC_IDS = {
     'KC_M4_CONVERGENCE_CRITERIA',     # stopping conditions
     'KC_M5_LEARNING_RATE',            # step size / eta
 
-    # Biology KCs (B1-B3) - for population_growth (logistic Verhulst dynamics)
-    'KC_B1_LOGISTIC_GROWTH_LAW',      # dN/dt = r*N*(1 - N/K)
-    'KC_B2_CARRYING_CAPACITY',        # K as environmental upper bound; clamping
-    'KC_B3_DENSITY_DEPENDENCE',       # (1 - N/K) per-capita scaling factor
 }
 
 
@@ -105,7 +95,6 @@ def validate_kc_id(kc_id: str) -> None:
 KC_EFI_DESCRIPTIONS = {
     'KC_C1_FUNCTION_DEF_RETURN': 'how to define functions with return values',
     'KC_C2_MATH_LIBRARY': 'the Python math library (import math, math.sin, math.cos, math.radians, math.pi, etc.)',
-    'KC_C3_FUNCTION_USAGE_ASSIGNMENT': 'how to call functions and assign results to variables',
     'KC_C4_ARITHMETIC_IMPLEMENTATION': 'how to implement arithmetic operations in code',
     'KC_C9_CLASS_DEFINITION': 'how to define Python classes (you do not know the "class" keyword or object-oriented programming)',
     'KC_C10_INIT_METHOD': 'how to define __init__ methods in classes',
@@ -117,16 +106,11 @@ KC_EFI_DESCRIPTIONS = {
     'KC_C16_FUNCTION_CALL': 'how to call functions with arguments',
     'KC_P1_VECTOR_DECOMPOSITION': 'how to decompose vectors into components',
     'KC_P2_TRIG_APPLICATION': 'trigonometric functions for physics problems',
-    'KC_P3_TIME_OF_FLIGHT': 'time of flight calculations',
-    'KC_P4_RANGE_FORMULA': 'projectile range formula',
     'KC_P5_UNIT_RADIANS': 'the math.radians() function or radian conversion (you do not know that angles need to be converted from degrees to radians)',
     'KC_P9_NUMERICAL_INTEGRATION': 'numerical integration (Euler method)',
     'KC_P10_FORCE_ACCELERATION': 'F = ma calculations',
     'KC_P11_KINETIC_ENERGY': 'kinetic energy formula (0.5*m*v^2)',
-    'KC_P12_POTENTIAL_ENERGY': 'potential energy formulas (spring PE = 0.5*k*x² or gravitational PE = m*g*h)',
-    'KC_P13_HOOKES_LAW': "Hooke's Law (F = -kx) for spring force",
     'KC_P14_COLLISION_REFLECTION': 'velocity reversal during collisions/bounces',
-    'KC_P15_RELATIVE_VELOCITY': 'vector addition of velocities (boat + current)',
     'KC_P16_FRICTION': 'friction force calculations (μ*N or μ*mg*cos(θ))',
     'KC_M1_DERIVATIVE_CONCEPT': 'the concept of derivatives/gradients',
     'KC_M2_NUMERICAL_DIFFERENTIATION': 'numerical differentiation formulas',
