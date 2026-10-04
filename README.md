@@ -2,6 +2,8 @@
 
 Code for the NeurIPS 2026 paper *BEAGLE: Behavior-Enforced Agent for Grounded Learner Emulation* (Hanchen David Wang, Clayton Cohn, Zifan Xu, Siyuan Guo, Gautam Biswas, Meiyi Ma).
 
+Paper: [arXiv:2602.13280](https://arxiv.org/abs/2602.13280)
+
 BEAGLE is a neuro-symbolic simulator of novice students in computational STEM (C-STEM) tasks, where students learn disciplinary content by writing and testing Python programs. It counters the *competency bias* of LLMs (their tendency to solve problems efficiently and correctly even when asked to act as a novice) with three architectural constraints:
 
 1. **Semi-Markov control.** A model fit on real student logs decides which metacognitive and cognitive behavior the agent is in and for how long.
@@ -121,7 +123,9 @@ Logfire tracing is off by default. To enable it, set `BEAGLE_ENABLE_LOGFIRE=1` a
   title     = {BEAGLE: Behavior-Enforced Agent for Grounded Learner Emulation},
   author    = {Wang, Hanchen David and Cohn, Clayton and Xu, Zifan and Guo, Siyuan and Biswas, Gautam and Ma, Meiyi},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026}
+  year      = {2026},
+  eprint    = {2602.13280},
+  archivePrefix = {arXiv}
 }
 ```
 
